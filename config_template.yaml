@@ -1,0 +1,75 @@
+# =============================================================================
+# PET/CT -> Atlas coregistration pipeline - Configuration template
+# Copy this file to your acquisition directory and edit as needed.
+# Run: petct_coreg_atlas.sh --config config.yaml --hotel {1|3|4}
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Atlas files
+# All paths are relative to atlas.home, or provide full absolute paths.
+# -----------------------------------------------------------------------------
+atlas:
+  home: /path/to/atlas/directory     # Directory containing atlas files
+  ct: atlas_ct.nii.gz                # Atlas CT template
+  labels: atlas_labels.nii.gz        # Atlas label map (integer VOIs)
+  brain_mask: atlas_brain_mask.nii.gz  # Atlas brain mask (optional; needed for Dice QC)
+
+# -----------------------------------------------------------------------------
+# External tool paths
+# If a tool is already on your PATH, leave it as the bare command name.
+# Otherwise, provide the full absolute path.
+# -----------------------------------------------------------------------------
+tools:
+  dcm2niix: dcm2niix
+  c3d: c3d
+  antsRegistration: antsRegistration
+  antsApplyTransforms: antsApplyTransforms
+  ImageMath: ImageMath
+  MeasureImageSimilarity: MeasureImageSimilarity  # optional; set to "" to skip MI QC
+  fslstats: fslstats                              # optional; set to "" to skip voxel count
+  nnUNetv2_predict: nnUNetv2_predict
+
+# -----------------------------------------------------------------------------
+# nnU-Net brain extraction model settings
+# -----------------------------------------------------------------------------
+nnunet:
+  results_dir: /path/to/nnunet/results   # nnUNet_results environment variable equivalent
+  dataset: Dataset001_BrainCT            # Dataset name as used during training
+  configuration: 2d                      # 2d or 3d_fullres
+  trainer: nnUNetTrainer
+  plans: nnUNetPlans
+  device: cpu                            # cpu or cuda
+  num_processes: 1                       # Parallel processes for pre/postprocessing
+  folds: "0 1 2 3 4"                     # Folds to use, or "auto" to detect from model dir
+  continue_prediction: true              # Skip already-predicted cases
+  scratch_dir: ""                        # Optional: fast local scratch for nnUNet temp files
+
+# -----------------------------------------------------------------------------
+# Optional: conda environment activation for nnU-Net
+# Leave empty ("") if nnUNetv2_predict is already available in the active environment.
+# -----------------------------------------------------------------------------
+conda:
+  activate_script: ""    # e.g. /opt/conda/etc/profile.d/conda.sh
+  env: ""                # e.g. nnunet
+
+# -----------------------------------------------------------------------------
+# Output directory
+# Default: ./output (relative to the acquisition run directory)
+# -----------------------------------------------------------------------------
+output:
+  dir: ./output
+
+# -----------------------------------------------------------------------------
+# Runtime settings
+# -----------------------------------------------------------------------------
+runtime:
+  itk_threads: ""   # Number of ITK threads (leave empty to use system default)
+
+# -----------------------------------------------------------------------------
+# Quality control outputs
+# -----------------------------------------------------------------------------
+qc:
+  enabled: true           # Set to false to skip all QC computation
+  write_csv: true         # Append metrics to QC_summary.csv
+  write_images: true      # Write PNG overlay images
+  images_dirname: qc_images  # Subdirectory name for QC images (within each HOTEL_POS_i/)

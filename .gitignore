@@ -1,0 +1,53 @@
+# =============================================================================
+# .gitignore for petct-brain-pipeline
+# =============================================================================
+
+# NIfTI image files (large; do not commit to repository)
+*.nii
+*.nii.gz
+
+# DICOM files
+*.dcm
+*.IMA
+
+# Pipeline output directories
+output/
+logs/
+cropped/
+HOTEL_POS_*/
+temp_ai/
+
+# SUV input files (contain study-specific values)
+SUV.txt
+SUV_*.txt
+
+# User config files (keep only the template)
+config.yaml
+
+# QC outputs
+QC_summary.csv
+QC_metrics.txt
+qc_images/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Log files
+*.log
