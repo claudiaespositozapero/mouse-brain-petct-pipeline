@@ -59,6 +59,7 @@ pip install numpy nibabel matplotlib pyyaml
 git clone https://github.com/YOUR_USERNAME/petct-brain-pipeline.git
 cd petct-brain-pipeline
 chmod +x petct_coreg_atlas.sh
+chmod +x batch_run.sh
 ```
 
 No compilation is needed. The pipeline is a self-contained Bash script.
@@ -136,6 +137,8 @@ qc:
 
 ## Usage
 
+### Single acquisition
+
 ```bash
 cd /path/to/my_acquisition/
 /path/to/petct_coreg_atlas.sh --config config.yaml --hotel {1|3|4}
@@ -151,6 +154,35 @@ cd /path/to/my_acquisition/
 cd /data/mouse01/
 ../petct_coreg_atlas.sh --config config.yaml --hotel 1
 ```
+
+### Batch processing
+
+To process a set of acquisitions sequentially, use the companion script `batch_run.sh`.
+Each subdirectory in the batch folder is processed as an independent run using the same
+`--hotel` value, so keep single-animal and hotel acquisitions in separate batch folders.
+
+```
+my_batch_folder/
+├── scan_01/    # *PET*.dcm, *CT*.dcm, SUV.txt
+├── scan_02/
+├── scan_03/
+└── ...
+```
+
+```bash
+bash batch_run.sh \
+  --pipeline /path/to/petct_coreg_atlas.sh \
+  --config   config.yaml \
+  --batch    /path/to/my_batch_folder/ \
+  --hotel    1
+```
+
+Results for each scan are written to `<subdir>/output/`. A per-run log is saved to
+`<subdir>/output/pipeline.log`. If QC is enabled, a consolidated QC table across all
+runs is written to `<batch_dir>/batch_QC_summary.csv`.
+
+If a run fails, the batch continues processing the remaining acquisitions and reports
+a summary of failed and skipped runs at the end.
 
 ---
 
