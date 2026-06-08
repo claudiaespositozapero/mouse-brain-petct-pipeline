@@ -81,6 +81,10 @@ my_acquisition/
 
 **SUV file format:** plain text file with a single numeric value (e.g., `0.1234`), representing the multiplicative factor to convert PET voxel intensities to SUV units.
 
+⚠️ **Image orientation:** The pipeline was developed and validated using images in RPS orientation, as produced by the Molecubes β-Cube/X-Cube system. Images
+acquired on other scanners should be verified and reoriented if necessary prior to processing. For multi-animal acquisitions, correct orientation is particularly
+important as the geometric FOV splitting assumes a fixed spatial arrangement of animals along the X and Y axes.
+
 ---
 
 ## Configuration file
