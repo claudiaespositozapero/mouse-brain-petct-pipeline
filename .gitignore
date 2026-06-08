@@ -51,3 +51,7 @@ Thumbs.db
 
 # Log files
 *.log
+
+# Batch run outputs
+*/output/
+batch_QC_summary.csv
