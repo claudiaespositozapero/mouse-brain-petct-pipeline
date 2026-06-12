@@ -44,6 +44,12 @@ Install Python dependencies:
 pip install numpy nibabel matplotlib pyyaml
 ```
 
+Installing nnU-Net:
+We recommend installing nnU-Net v2 directly from the official repository, as installation steps vary depending on your operating system, Python environment, and hardware. Detailed instructions for all configurations are available at:
+
+- General installation: https://github.com/MIC-DKFZ/nnUNet
+- Step-by-step setup guide: https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/getting-started/installation-and-setup.md
+
 ### Atlas and model files
 
 - **Atlas:** T2-weighted mouse brain MRI template (Mirrione et al., 2007) with atlas label map
