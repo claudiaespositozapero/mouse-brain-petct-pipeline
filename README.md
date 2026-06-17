@@ -44,11 +44,37 @@ Install Python dependencies:
 pip install numpy nibabel matplotlib pyyaml
 ```
 
-Installing nnU-Net:
+### Installing nnU-Net:
 We recommend installing nnU-Net v2 directly from the official repository, as installation steps vary depending on your operating system, Python environment, and hardware. Detailed instructions for all configurations are available at:
 
 - General installation: https://github.com/MIC-DKFZ/nnUNet
 - Step-by-step setup guide: https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/getting-started/installation-and-setup.md
+
+### Installing system tools (ANTs, Convert3D, dcm2niix)
+
+⚠️ ANTs, Convert3D (c3d), and dcm2niix are system-level tools and **cannot be installed via pip**. Installation depends on your operating system:
+
+**ANTs:**
+```bash
+sudo apt install ants          # Ubuntu/Debian
+```
+Or download pre-compiled binaries from: https://github.com/ANTsX/ANTs/releases
+
+**Convert3D (c3d):**
+```bash
+sudo apt install python3-dev   # Ubuntu/Debian (required dependency)
+```
+Then download the c3d binary from: https://sourceforge.net/projects/c3d/
+
+**dcm2niix:**
+```bash
+# Ubuntu/Debian — see full instructions at:
+# https://github.com/rordenlab/dcm2niix#install
+sudo apt install dcm2niix
+```
+
+**FSL** (optional, only needed for voxel count QC):
+See installation instructions at: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation
 
 ### Atlas and model files
 
@@ -270,7 +296,7 @@ The pipeline was validated against manual PMOD-based analysis in >600 PET acquis
 
 If you use this pipeline in your research, please cite:
 
-> Esposito-Zapero C, Acebal S, Arsequell G, Aguiar P, Padró D, Galdran A, Llop J.  
+> Esposito-Zapero C, Acebal S, Arsequell G, Aguiar P, Padro D, Martín A, Galdran A, Llop J.  
 > *An open and fully automated CT-based pipeline for high-throughput mouse brain PET quantification.*  
 > *(Citation to be updated upon publication)*
 
