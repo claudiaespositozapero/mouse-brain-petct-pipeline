@@ -88,8 +88,8 @@ See installation instructions at: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInst
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/petct-brain-pipeline.git
-cd petct-brain-pipeline
+git clone https://github.com/claudiaespositozapero/mouse-brain-petct-pipeline
+cd mouse-brain-petct-pipeline
 chmod +x petct_coreg_atlas.sh
 chmod +x batch_run.sh
 ```
