@@ -3,7 +3,7 @@
 A fully automated, open-source pipeline for atlas-normalized mouse brain PET-CT quantification. No subject-specific MRI required. No manual intervention needed.
 
 > **Associated publication:**  
-> Esposito-Zapero C, Acebal S, Arsequell G, Aguiar P, Padró D, Galdran A, Llop J.  
+> Esposito-Zapero C, Acebal S, Padro D, Arsequell G, Aguiar P, Martín A, Galdran A, Llop J.  
 > *An open and fully automated CT-based pipeline for high-throughput mouse brain PET quantification.*  
 > *(Journal – under review)*
 
@@ -296,7 +296,7 @@ The pipeline was validated against manual PMOD-based analysis in >600 PET acquis
 
 If you use this pipeline in your research, please cite:
 
-> Esposito-Zapero C, Acebal S, Arsequell G, Aguiar P, Padro D, Martín A, Galdran A, Llop J.  
+> Esposito-Zapero C, Acebal S, Padro D, Arsequell G, Aguiar P, Martín A, Galdran A, Llop J.  
 > *An open and fully automated CT-based pipeline for high-throughput mouse brain PET quantification.*  
 > *(Citation to be updated upon publication)*
 
