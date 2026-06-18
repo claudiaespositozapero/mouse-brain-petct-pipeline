@@ -20,7 +20,7 @@ This pipeline processes mouse brain PET-CT data from raw DICOM files to atlas-ba
 - Rigid PET-to-CT registration (ANTs)
 - Deep learning CT brain extraction (nnU-Net)
 - Multi-stage deformable CT-to-atlas registration (ANTs: Rigid + Affine + SyN)
-- Atlas-based regional SUV extraction (c3d)
+- Atlas-based regional SUV extraction (Convert3D)
 - Automated QC outputs: visual overlays + quantitative metrics (Dice, MI CT→Atlas, MI PET→CT)
 
 ---
