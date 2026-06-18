@@ -55,3 +55,12 @@ Thumbs.db
 # Batch run outputs
 */output/
 batch_QC_summary.csv
+
+# Exception: example data
+!example_data/**/*.nii.gz
+!example_data/**/*.nii
+!example_data/**/*.dcm
+!example_data/Individual/SUV.txt
+!example_data/Individual/SUV_*.txt
+!example_data/Mouse-hotel/SUV.txt
+!example_data/Mouse-hotel/SUV_*.txt
