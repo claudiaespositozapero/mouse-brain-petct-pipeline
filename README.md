@@ -314,5 +314,5 @@ This software is released for academic use. See [LICENSE](LICENSE) for details.
 ## Contact
 
 For questions or issues, please open a [GitHub Issue](../../issues) or contact the corresponding author:  
-**Jordi Llop** — jllop@cicbiomagune.es  
+**Claudia Esposito Zapero** — claudiaespositozapero@gmail.com  
 CIC BiomaGUNE, Basque Research and Technology Alliance (BRTA), Donostia-San Sebastián, Spain.
